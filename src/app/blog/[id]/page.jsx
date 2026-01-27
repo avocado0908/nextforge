@@ -1,20 +1,40 @@
 import React from 'react'
 import styles from './page.module.css'
-import Link from 'next/link'
-import Image from 'next/image' 
+import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
-const BlogPost = () => {
+async function getData(id) {
+  try {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      cache: "no-store",
+    })
+
+    if (!res.ok) return null
+    return res.json()
+  } catch (err) {
+    console.error('getData error', err)
+    return null
+  }
+}
+
+const BlogPost = async (props) => {
+  const resolvedProps = await props
+  const params = await resolvedProps.params
+  const data = await getData(params.id)
+
+  if (!data) {
+    notFound()
+  }
+
   return (
-     <div className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <h1 className={styles.title}>title</h1>
-          <p className={styles.desc}>
-            Description
-          </p>
+          <h1 className={styles.title}>{data.title}</h1>
+          <p className={styles.desc}>Description</p>
           <div className={styles.author}>
             <Image
-              src={'https://images.pexels.com/photos/4065136/pexels-photo-4065136.jpeg?auto=compress&cs=tinysrgb&w=600q'}
+              src="https://images.pexels.com/photos/4065136/pexels-photo-4065136.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt=""
               width={40}
               height={40}
@@ -25,17 +45,15 @@ const BlogPost = () => {
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src={'https://images.pexels.com/photos/4065136/pexels-photo-4065136.jpeg?auto=compress&cs=tinysrgb&w=600q'}
+            src="https://images.pexels.com/photos/4065136/pexels-photo-4065136.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt=""
-            fill={true}
+            fill
             className={styles.image}
           />
         </div>
       </div>
       <div className={styles.content}>
-        <p className={styles.text}>
-         content
-        </p>
+        <p className={styles.text}>content</p>
       </div>
     </div>
   )
