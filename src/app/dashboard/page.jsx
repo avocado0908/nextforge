@@ -3,11 +3,8 @@ import React, { useState } from 'react'
 import styles from './page.module.css'
 import { useEffect } from 'react';
 import useSWR from 'swr';
+import { useSession } from 'next-auth/react';
 
-export const metadata = {
-  title: "NextForge Dashboard Information",
-  description: "This is dashboard page",
-};
 
 
 const Dashboard = () => {
@@ -32,6 +29,9 @@ const Dashboard = () => {
   //   };
   //   getData();
   // }, []);
+
+  const session = useSession()
+  console.log(session)
 
   const fetcher = (...args) => fetch(...args).then(res => res.json());
 
