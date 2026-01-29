@@ -5,23 +5,23 @@ const {Schema} = mongoose
 const postSchema = new Schema({
     title:{
         type: String,
-        require: true,
+        required: true,
     },
     desc:{
         type: String,
-        require: true,
+        required: true,
     },
     img:{
         type: String,
-        require: true,
+        required: true,
     },
     content:{
         type: String,
-        require: true,
+        required: true,
     },
     username:{
         type: String,
-        require: true,
+        required: true,
     },
 },
 {
@@ -29,4 +29,5 @@ const postSchema = new Schema({
 }
 )
 
-export default mongoose.model("Post", postSchema)
+// reuse existing model if compiled to avoid OverwriteModelError in dev/hot-reload
+export default mongoose.models.Post || mongoose.model("Post", postSchema)
