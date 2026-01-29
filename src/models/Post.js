@@ -11,7 +11,7 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    img:{
+    image:{
         type: String,
         required: true,
     },
@@ -20,7 +20,7 @@ const postSchema = new Schema({
         required: true,
     },
     username:{
-        type: String,
+              type: String,
         required: true,
     },
 },
