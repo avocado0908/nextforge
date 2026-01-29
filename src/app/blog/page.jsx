@@ -15,6 +15,12 @@ async function getData() {
   return res.json();
 }
 
+export const metadata = {
+  title: "NextForge Blog Information",
+  description: "This is blog page",
+};
+
+
 const Blog = async () => {
   const data = await getData()
 

@@ -17,6 +17,26 @@ async function getData(id) {
   }
 }
 
+export async function generateMetadata({ params }) {
+  const post = await params;
+  const data = await getData(post.id)
+
+  if (!data) {
+    return {
+      title: 'Post not found',
+      description: '',
+    }
+  }
+
+  return {
+    title: data.title || 'Untitled',
+    description: data.desc || '',
+  }
+}
+
+
+
+
 const BlogPost = async (props) => {
   const resolvedProps = await props
   const params = await resolvedProps.params

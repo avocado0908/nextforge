@@ -4,6 +4,12 @@ import styles from './page.module.css'
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
+export const metadata = {
+  title: "NextForge Dashboard Information",
+  description: "This is dashboard page",
+};
+
+
 const Dashboard = () => {
   // const [data, setData] = useState([]);
   // const [err, setErr] = useState(false);

@@ -14,6 +14,23 @@ const getData = async (cat) => {
   return notFound();
 }
 
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+    const data = await getData(resolvedParams.category);
+
+  if (!data) {
+    return {
+      title: 'Post not found',
+      description: '',
+    }
+  }
+
+  return {
+    title: data.title || 'Untitled',
+    description: data.desc || '',
+  }
+}
+
 const Category = async ({ params }) => {
   const resolvedParams = await params;
     const data = await getData(resolvedParams.category);

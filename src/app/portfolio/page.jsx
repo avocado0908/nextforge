@@ -2,6 +2,12 @@ import React from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
 
+export const metadata = {
+  title: "NextForge Portfolio Information",
+  description: "This is Portfolio page",
+};
+
+
 const Portfolio = () => {
   return (
     <div className={styles.container}>
