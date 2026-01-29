@@ -19,7 +19,6 @@ The goal of this project is to **demonstrate practical understanding of Next.js*
   - Google OAuth  
   - Credentials (Email & Password)
 - **SEO:** Static & Dynamic Metadata
-- **Deployment Ready:** Yes
 
 ---
 
@@ -70,6 +69,19 @@ The goal of this project is to **demonstrate practical understanding of Next.js*
 
 ---
 
+## 📌 Notes
+This project was built as a learning-focused portfolio project. (LamaDev Project)
+Each feature was implemented incrementally with clear commit history to reflect real development workflow.
+
+---
+
+## 📎 Author
+Tay
+Aspiring Full Stack Developer
+Focused on modern React & Next.js development
+
+---
+
 ## 🚀 Getting Started
 
 ```bash
@@ -81,11 +93,3 @@ npm run dev
 
 Open http://localhost:3000 to view the app.
 
-## 📌 Notes
-This project was built as a learning-focused portfolio project. (LamaDev Project)
-Each feature was implemented incrementally with clear commit history to reflect real development workflow.
-
-## 📎 Author
-Tay
-Aspiring Full Stack Developer
-Focused on modern React & Next.js development
